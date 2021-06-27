@@ -4,10 +4,10 @@ alarm = "";
 objects = [];
 
 function preload(){
-    alarm = loadSound("alarm.mp3")
+        alarm = loadSound("alarm.mp3");
 }
 function setup(){
-    canvas = createCanvas(380,350);
+    canvas = createCanvas(500,350);
     canvas.center();
     video = createCapture(VIDEO);
     video.hide();
@@ -15,7 +15,7 @@ function setup(){
     document.getElementById("detection").innerHTML = " : Detecting Object";
 }
 function draw(){
-    image(video,0,0,380,350);
+    image(video,0,0,500,350);
     if(status != ""){
         objectDetector.detect(video,got_results);
         document.getElementById("detection").innerHTML = " : Object Detected";
@@ -30,10 +30,11 @@ function draw(){
             text(objects[i].label + " " + percentage + "%",objects[i].x,objects[i].y - 10);
             textSize(20)
             noFill();
-            rect(objects[i].x - 50,objects[i].y - 10,objects[i].width - 200,objects[i].height - 150)
+            rect(objects[i].x - 50,objects[i].y - 10,objects[i].width - 200,objects[i].height - 150);
         }
     }
     if(status = ""){
+        if(objects[i].label != "person")
         document.getElementById("found").innerHTML = "<h3 class='button' >Baby Not Found</h3>";
         alarm.play();
     }
