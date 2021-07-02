@@ -33,7 +33,7 @@ function draw(){
             rect(objects[i].x - 50,objects[i].y - 10,objects[i].width - 200,objects[i].height - 150);
         }
     }
-    if(status = ""){
+    if(status == ""){
         if(objects[i].label != "person")
         document.getElementById("found").innerHTML = "<h3 class='button' >Baby Not Found</h3>";
         alarm.play();
